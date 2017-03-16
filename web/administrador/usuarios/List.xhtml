@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="./../../plantillas/templateBasica.xhtml">
+
+        <ui:define name="content">
+            <h2>#{bundle.ListUsuarioTitle}</h2>
+            <p:separator />
+            <h:form id="UsuarioListForm">
+                <h:panelGrid  columns="1">
+                    <p:commandButton  value="Nuevo Usuario" action="#{usuarioController.prepareCreate()}" />
+                </h:panelGrid>
+                <p:separator />
+                <p:panel>
+                    <p:dataTable id="datalist" value="#{usuarioController.items}" var="item"                                 
+                                 paginator="true"
+                                 rowKey="#{item.usuid}"
+                                 rows="5"
+                                 rowsPerPageTemplate="5,10,20,30,40,50"
+                                 emptyMessage="No hay usuarios con este criterio"
+                                 widgetVar="usuariosTable"
+                                 >
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Buscar en todos los campos:" />
+                                <p:inputText id="globalFilter" onkeyup="PF('usuariosTable').filter()" style="width:150px" placeholder="Entre palabra clave"/>
+                            </p:outputPanel>
+                        </f:facet>
+                        <p:column filterBy="#{item.usuid}" headerText="#{bundle.ListUsuarioTitle_usuid}" filterMatchMode="contains">
+                            <h:outputText value="#{item.usuid}" />
+                        </p:column>
+
+                        <p:column filterBy="#{item.usunombres}" headerText="#{bundle.ListUsuarioTitle_usunombres}" filterMatchMode="contains">
+                            <h:outputText value="#{item.usunombres}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.usuapellidos}" headerText="#{bundle.ListUsuarioTitle_usuapellidos}" filterMatchMode="contains">
+                            <h:outputText value="#{item.usuapellidos}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.usunombreusuario}" headerText="#{bundle.ListUsuarioTitle_usunombreusuario}" filterMatchMode="contains">
+                            <h:outputText value="#{item.usunombreusuario}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.usuemail}" headerText="#{bundle.ListUsuarioTitle_usuemail}" filterMatchMode="contains">
+                            <h:outputText value="#{item.usuemail}"/>
+                        </p:column>
+
+                        <p:column headerText="Acciones">
+                            <p:commandLink title="Ver"  action="#{usuarioController.prepareView(item)}">                                    
+                                <p:graphicImage  library="img" name="b_view.png"/>
+                            </p:commandLink>
+                            <p:commandLink title="Editar" style="margin-left: 5px;" action="#{usuarioController.prepareUpdate(item)}">                                    
+                                <p:graphicImage  library="img" name="b_edit.png"/>
+                            </p:commandLink>     
+
+                            <p:commandLink id="eliminar" style="margin-left: 5px;" title="Eliminar" action="#{usuarioController.destroy(item)}" >
+                                <p:confirm header="Confirmación" message="¿Está seguro que desea eliminar?" icon="ui-icon-alert" />
+                                <p:graphicImage library="img" name="b_drop.png"/>
+                            </p:commandLink>
+
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
+
+                        </p:column>
+                    </p:dataTable> 
+                </p:panel>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

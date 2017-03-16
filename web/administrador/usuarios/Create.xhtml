@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="./../../plantillas/templateBasica.xhtml">
+
+        <ui:define name="content">
+            <h2> #{bundle.CreateUsuarioTitle} </h2>
+            <p:separator/>
+            <h:form id="UsuarioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="3" rendered="#{usuarioController.selected != null}" styleClass="panelNoBorder" >
+
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usufechanacimiento}" for="usufechanacimiento" />
+                        <p:calendar id="usufechanacimiento" value="#{usuarioController.selected.usufechanacimiento}" size="10" required="true" 
+                                    requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usufechanacimiento}" 
+                                    showOn="button" navigator="true" yearRange="c-100:c" pattern="yyyy-MM-dd" 
+                                    >
+                            <f:validator validatorId="ValidarCampoFechaNacimiento"/>
+                        </p:calendar>
+                        <p:message for="usufechanacimiento" class="message" />
+
+
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usunombres}" for="usunombres" />
+                        <p:inputText id="usunombres" value="#{usuarioController.selected.usunombres}"  required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usunombres}"/>
+                        <p:message for="usunombres" class="message"/>
+
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuapellidos}" for="usuapellidos" />
+                        <p:inputText id="usuapellidos" value="#{usuarioController.selected.usuapellidos}"  required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuapellidos}"/>
+                        <p:message for="usuapellidos" class="message"/>
+
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usugenero}" for="usugenero" />
+                        <p:selectOneRadio id="usugenero" value="#{usuarioController.selected.usugenero}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usugenero}">
+                            <f:selectItem itemLabel="Masculino" itemValue="M" />
+                            <f:selectItem itemLabel="Femenino" itemValue="F" />                                            
+                        </p:selectOneRadio>
+                        <p:message for="usugenero" class="message"/>
+
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usunombreusuario}" for="usunombreusuario" />
+                        <p:inputText id="usunombreusuario" value="#{usuarioController.selected.usunombreusuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usunombreusuario}"/>
+                        <p:message for="usunombreusuario" class="message"/>
+
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usucontrasena}" for="usucontrasena" />
+                        <p:inputText id="usucontrasena" value="#{usuarioController.selected.usucontrasena}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usucontrasena}"/>
+                        <p:message for="usucontrasena" class="message"/>
+
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuemail}" for="usuemail" />
+                        <p:inputText id="usuemail" value="#{usuarioController.selected.usuemail}"  required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuemail}" placeholder="Ej: usuario@gmail.com"> 
+                            <f:validator validatorId="ValidarCampoCorreoElectronico"/>
+                        </p:inputText>
+                        <p:message for="usuemail" class="message"/>
+
+                        <h:outputLabel value="#{bundle.CreateUsuarioLabel_carid}" for="carid" />
+                        <p:selectOneMenu id="carid" value="#{usuarioController.selected.carid}" >
+                            <f:selectItems value="#{cargoController.itemsAvailableSelectOne}"
+                                           var="caridItem"
+                                           itemValue="#{caridItem}"/>
+                        </p:selectOneMenu>
+                        <p:message for="carid" class="message"/>
+
+                    </p:panelGrid>
+                    <p:commandButton ajax="false" actionListener="#{usuarioController.create}" value="#{bundle.Save}" />
+                    <p:commandButton value="#{bundle.Cancel}" action="List" immediate="true"/>
+
+                </h:panelGroup>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

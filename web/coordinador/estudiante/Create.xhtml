@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEstudianteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estCodigo}" for="estCodigo" />
+                    <h:inputText id="estCodigo" value="#{estudianteController.selected.estCodigo}" title="#{bundle.CreateEstudianteTitle_estCodigo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estNombre}" for="estNombre" />
+                    <h:inputText id="estNombre" value="#{estudianteController.selected.estNombre}" title="#{bundle.CreateEstudianteTitle_estNombre}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estNombre}"/>
+                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estCorreo}" for="estCorreo" />
+                    <h:inputText id="estCorreo" value="#{estudianteController.selected.estCorreo}" title="#{bundle.CreateEstudianteTitle_estCorreo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCorreo}"/>
+                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estCohorte}" for="estCohorte" />
+                    <h:inputText id="estCohorte" value="#{estudianteController.selected.estCohorte}" title="#{bundle.CreateEstudianteTitle_estCohorte}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCohorte}"/>
+                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estContrasena}" for="estContrasena" />
+                    <h:inputText id="estContrasena" value="#{estudianteController.selected.estContrasena}" title="#{bundle.CreateEstudianteTitle_estContrasena}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estContrasena}"/>
+                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estTutor}" for="estTutor" />
+                    <h:inputText id="estTutor" value="#{estudianteController.selected.estTutor}" title="#{bundle.CreateEstudianteTitle_estTutor}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estTutor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{estudianteController.create}" value="#{bundle.CreateEstudianteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{estudianteController.prepareList}" value="#{bundle.CreateEstudianteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEstudianteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
