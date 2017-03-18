@@ -8,40 +8,23 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form>            
-            <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-                Iniciar sesión
-            </h:outputLink>
+        <h:form>
+            
+            <h:panelGrid columns="2" cellpadding="5">
+                
+                <h:outputLabel for="username" value="Username:" />
+                <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
 
-            <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+                <h:outputLabel for="password" value="Password:" />
+                <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
 
-            <p:dialog header="Login" widgetVar="dlg" resizable="false">
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel for="username" value="Username:" />
-                    <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
-
-                    <h:outputLabel for="password" value="Password:" />
-                    <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
-
-                    <f:facet name="footer">
-                        <p:commandButton value="Login" update="growl" actionListener="#{userLoginView.login}"
-                                         oncomplete="handleLoginRequest(xhr, status, args)" />
-                    </f:facet>  
-                </h:panelGrid>
-            </p:dialog>
+                <f:facet name="footer">
+                    <p:commandButton value="Login" actionListener="#{userLoginView.login}"
+                                     oncomplete="handleLoginRequest(xhr, status, args)" />
+                </f:facet>
+                
+            </h:panelGrid>            
         </h:form>
- <script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:15}, 100);
-        }
-        else {
-            PF('dlg').hide();
-            $('#loginLink').fadeOut();
-        }
-    }
-</script>
-
     </h:body>
 </html>
 
