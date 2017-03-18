@@ -47,6 +47,7 @@ public class UserLoginView {
             loggedIn = true;
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome santiago", username);
             Utilidades.redireccionar("/proyectobase/faces/index.xhtml");
+            
         } else {
             loggedIn = false;
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
