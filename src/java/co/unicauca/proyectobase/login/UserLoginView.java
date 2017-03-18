@@ -5,6 +5,7 @@
  */
 package co.unicauca.proyectobase.login;
 
+import co.unicauca.proyectobase.utilidades.Utilidades;
 import java.awt.event.ActionEvent;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -45,6 +46,7 @@ public class UserLoginView {
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
             loggedIn = true;
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome santiago", username);
+            Utilidades.redireccionar("/proyectobase/faces/index.xhtml");
         } else {
             loggedIn = false;
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
