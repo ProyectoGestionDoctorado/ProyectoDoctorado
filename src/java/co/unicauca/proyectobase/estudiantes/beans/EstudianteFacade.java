@@ -6,6 +6,7 @@
 package co.unicauca.proyectobase.estudiantes.beans;
 
 import co.unicauca.proyectobase.entidades.Estudiante;
+import co.unicauca.proyectobase.estudiantes.beans.AbstractFacade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

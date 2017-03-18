@@ -190,3 +190,5 @@ ALTER TABLE `estudiante`
 --
 ALTER TABLE `estudiante`
 MODIFY `est_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+-- Agregar campo apellidos a tabla estudiante
+ALTER TABLE `estudiante` ADD `est_apellidos` VARCHAR(45) NOT NULL AFTER `est_nombre`;

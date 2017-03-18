@@ -5,15 +5,15 @@
  */
 package co.unicauca.proyectobase.estudiantes.beans;
 
+import co.unicauca.proyectobase.usuarios.beans.*;
 import java.util.List;
 import javax.persistence.EntityManager;
 
 /**
  *
- * @author Sahydo
+ * @author libardo
  */
 public abstract class AbstractFacade<T> {
-
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {

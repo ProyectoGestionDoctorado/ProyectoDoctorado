@@ -29,6 +29,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Estudiante.findByEstId", query = "SELECT e FROM Estudiante e WHERE e.estId = :estId"),
     @NamedQuery(name = "Estudiante.findByEstCodigo", query = "SELECT e FROM Estudiante e WHERE e.estCodigo = :estCodigo"),
     @NamedQuery(name = "Estudiante.findByEstNombre", query = "SELECT e FROM Estudiante e WHERE e.estNombre = :estNombre"),
+    @NamedQuery(name = "Estudiante.findByEstApellidos", query = "SELECT e FROM Estudiante e WHERE e.estApellidos = :estApellidos"),
     @NamedQuery(name = "Estudiante.findByEstCorreo", query = "SELECT e FROM Estudiante e WHERE e.estCorreo = :estCorreo"),
     @NamedQuery(name = "Estudiante.findByEstCohorte", query = "SELECT e FROM Estudiante e WHERE e.estCohorte = :estCohorte"),
     @NamedQuery(name = "Estudiante.findByEstContrasena", query = "SELECT e FROM Estudiante e WHERE e.estContrasena = :estContrasena"),
@@ -51,6 +52,12 @@ public class Estudiante implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "est_nombre")
     private String estNombre;
+    
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "est_apellidos")
+    private String estApellidos;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -79,7 +86,7 @@ public class Estudiante implements Serializable {
         this.estId = estId;
     }
 
-    public Estudiante(Integer estId, String estCodigo, String estNombre, String estCorreo, String estCohorte, String estContrasena, String estTutor) {
+    public Estudiante(Integer estId, String estCodigo, String estNombre,String estApellidos, String estCorreo, String estCohorte, String estContrasena, String estTutor) {
         this.estId = estId;
         this.estCodigo = estCodigo;
         this.estNombre = estNombre;
@@ -87,8 +94,17 @@ public class Estudiante implements Serializable {
         this.estCohorte = estCohorte;
         this.estContrasena = estContrasena;
         this.estTutor = estTutor;
+        this.estApellidos = estApellidos;
     }
 
+    public String getEstApellidos() {
+        return estApellidos;
+    }
+
+    public void setEstApellidos(String estApellidos) {
+        this.estApellidos = estApellidos;
+    }
+    
     public Integer getEstId() {
         return estId;
     }
