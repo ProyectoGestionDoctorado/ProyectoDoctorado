@@ -19,7 +19,6 @@ import org.primefaces.context.RequestContext;
 @ManagedBean
 public class UserLoginView {
     private String username;
-     
     private String password;
  
     public String getUsername() {
