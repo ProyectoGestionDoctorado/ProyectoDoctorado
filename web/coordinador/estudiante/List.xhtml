@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -19,72 +20,83 @@
                     <h:outputText value="#{estudianteController.pagination.pageFirstItem + 1}..#{estudianteController.pagination.pageLastItem + 1}/#{estudianteController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{estudianteController.previous}" value="#{bundle.Previous} #{estudianteController.pagination.pageSize}" rendered="#{estudianteController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{estudianteController.next}" value="#{bundle.Next} #{estudianteController.pagination.pageSize}" rendered="#{estudianteController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{estudianteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estId}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estCodigo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estCodigo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estNombre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estNombre}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estApellidos}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estApellidos}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estCorreo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estCorreo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estCohorte}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estCohorte}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estContrasena}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estContrasena}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstudianteTitle_estTutor}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estTutor}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{estudianteController.prepareView}" value="#{bundle.ListEstudianteViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{estudianteController.prepareEdit}" value="#{bundle.ListEstudianteEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{estudianteController.destroy}" value="#{bundle.ListEstudianteDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Listado de estudiantes
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <h:dataTable value="#{estudianteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px" class="table table-striped">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estId}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estId}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estCodigo}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estCodigo}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estNombre}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estNombre}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estApellidos}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estApellidos}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estCorreo}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estCorreo}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estCohorte}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estCohorte}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estContrasena}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estContrasena}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEstudianteTitle_estTutor}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estTutor}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="&nbsp;"/>
+                                    </f:facet>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <h:commandLink action="#{estudianteController.prepareView}" value="#{bundle.ListEstudianteViewLink}" class="btn btn-success"/>
+                                    &nbsp;
+                                    <h:outputText value=" "/>
+                                    <h:commandLink action="#{estudianteController.prepareEdit}" value="#{bundle.ListEstudianteEditLink}" class="btn btn-info"/>
+                                    &nbsp;
+                                    <h:outputText value=" "/>
+                                    <h:commandLink action="#{estudianteController.destroy}" value="#{bundle.ListEstudianteDestroyLink}" class="btn btn-danger"/>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </div>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{estudianteController.prepareCreate}" value="#{bundle.ListEstudianteCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListEstudianteIndexLink}"/>
+                <h:commandLink action="#{estudianteController.prepareCreate}" value="#{bundle.ListEstudianteCreateLink}" class="btn btn-primary"/>
+                &nbsp;&nbsp;&nbsp;
+                <h:link outcome="/index" value="#{bundle.ListEstudianteIndexLink}" class="btn btn-warning"/>
             </h:form>
         </ui:define>
     </ui:composition>

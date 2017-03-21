@@ -3,8 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
+    
+    
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateEstudianteTitle}"></h:outputText>
@@ -14,30 +17,38 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estCodigo}" for="estCodigo" />
-                    <h:inputText id="estCodigo" value="#{estudianteController.selected.estCodigo}" title="#{bundle.CreateEstudianteTitle_estCodigo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCodigo}"/>
-                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estNombre}" for="estNombre" />
-                    <h:inputText id="estNombre" value="#{estudianteController.selected.estNombre}" title="#{bundle.CreateEstudianteTitle_estNombre}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estNombre}"/>
-                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estApellidos}" for="estApellidos" />
-                    <h:inputText id="estApellidos" value="#{estudianteController.selected.estApellidos}" title="#{bundle.CreateEstudianteTitle_estApellidos}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estApellidos}"/>
-                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estCorreo}" for="estCorreo" />
-                    <h:inputText id="estCorreo" value="#{estudianteController.selected.estCorreo}" title="#{bundle.CreateEstudianteTitle_estCorreo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCorreo}"/>
-                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estCohorte}" for="estCohorte" />
-                    <h:inputText id="estCohorte" value="#{estudianteController.selected.estCohorte}" title="#{bundle.CreateEstudianteTitle_estCohorte}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCohorte}"/>
-                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estContrasena}" for="estContrasena" />
-                    <h:inputText id="estContrasena" value="#{estudianteController.selected.estContrasena}" title="#{bundle.CreateEstudianteTitle_estContrasena}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estContrasena}"/>
-                    <h:outputLabel value="#{bundle.CreateEstudianteLabel_estTutor}" for="estTutor" />
-                    <h:inputText id="estTutor" value="#{estudianteController.selected.estTutor}" title="#{bundle.CreateEstudianteTitle_estTutor}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estTutor}"/>
-                </h:panelGrid>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Creación de estudiante
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <p:panelGrid columns="2">                    
+                            <p:outputLabel value="#{bundle.CreateEstudianteLabel_estCodigo}" for="estCodigo" />
+                            <p:inputText id="estCodigo" value="#{estudianteController.selected.estCodigo}" title="#{bundle.CreateEstudianteTitle_estCodigo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCodigo}"/>
+                            <p:outputLabel value="#{bundle.CreateEstudianteLabel_estNombre}" for="estNombre" />
+                            <p:inputText id="estNombre" value="#{estudianteController.selected.estNombre}" title="#{bundle.CreateEstudianteTitle_estNombre}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estNombre}"/>
+                            <p:outputLabel value="#{bundle.CreateEstudianteLabel_estApellidos}" for="estApellidos" />
+                            <p:inputText id="estApellidos" value="#{estudianteController.selected.estApellidos}" title="#{bundle.CreateEstudianteTitle_estApellidos}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estApellidos}"/>
+                            <p:outputLabel value="#{bundle.CreateEstudianteLabel_estCorreo}" for="estCorreo" />
+                            <p:inputText id="estCorreo" value="#{estudianteController.selected.estCorreo}" title="#{bundle.CreateEstudianteTitle_estCorreo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCorreo}"/>
+                            <p:outputLabel value="#{bundle.CreateEstudianteLabel_estCohorte}" for="estCohorte" />
+                            <p:inputText id="estCohorte" value="#{estudianteController.selected.estCohorte}" title="#{bundle.CreateEstudianteTitle_estCohorte}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCohorte}"/>
+                            <p:outputLabel value="#{bundle.CreateEstudianteLabel_estContrasena}" for="estContrasena" />
+                            <p:inputText id="estContrasena" value="#{estudianteController.selected.estContrasena}" title="#{bundle.CreateEstudianteTitle_estContrasena}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estContrasena}"/>
+                            <p:outputLabel value="#{bundle.CreateEstudianteLabel_estTutor}" for="estTutor" />
+                            <p:inputText id="estTutor" value="#{estudianteController.selected.estTutor}" title="#{bundle.CreateEstudianteTitle_estTutor}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estTutor}"/>
+                        </p:panelGrid>
+                    </div>
+                </div>
+                
                 <br />
-                <h:commandLink action="#{estudianteController.create}" value="#{bundle.CreateEstudianteSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{estudianteController.prepareList}" value="#{bundle.CreateEstudianteShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateEstudianteIndexLink}"/>
+                <p:commandLink action="#{estudianteController.create}" value="#{bundle.CreateEstudianteSaveLink}" class="btn btn-primary"/>
+                &nbsp;&nbsp;
+                <p:commandLink action="#{estudianteController.prepareList}" value="#{bundle.CreateEstudianteShowAllLink}" immediate="true" class="btn btn-info"/>
+                &nbsp;&nbsp;
+                <p:link outcome="/index" value="#{bundle.CreateEstudianteIndexLink}" class="btn btn-warning"/>
             </h:form>
         </ui:define>
     </ui:composition>
