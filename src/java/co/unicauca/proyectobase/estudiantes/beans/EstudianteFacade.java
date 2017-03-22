@@ -6,10 +6,13 @@
 package co.unicauca.proyectobase.estudiantes.beans;
 
 import co.unicauca.proyectobase.entidades.Estudiante;
+import co.unicauca.proyectobase.entidades.Usuario;
 import co.unicauca.proyectobase.estudiantes.beans.AbstractFacade;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,5 +32,13 @@ public class EstudianteFacade extends AbstractFacade<Estudiante> {
     public EstudianteFacade() {
         super(Estudiante.class);
     }
+    
+    public boolean buscarPorEmail(String usuemail) {
+        Query query = getEntityManager().createNamedQuery("Estudiante.findByEstCorreo");
+        query.setParameter("est_correo", usuemail);
+        List<Usuario> resultList = query.getResultList();
+        return !resultList.isEmpty();
+
+    }   
     
 }

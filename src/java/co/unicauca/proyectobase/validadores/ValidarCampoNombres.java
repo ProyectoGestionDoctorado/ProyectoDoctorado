@@ -23,8 +23,8 @@ public class ValidarCampoNombres implements Validator {
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-         String texto = String.valueOf(value);        
-        Pattern patron = Pattern.compile("([_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,}))");
+        String texto = String.valueOf(value);        
+        Pattern patron = Pattern.compile("([ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙñÑ.-]{3,45})$");
         Matcher encaja = patron.matcher(texto);        
         if(!encaja.find())
         {
