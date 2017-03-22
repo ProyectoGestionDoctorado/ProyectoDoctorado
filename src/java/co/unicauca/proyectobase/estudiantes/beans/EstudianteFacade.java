@@ -35,7 +35,7 @@ public class EstudianteFacade extends AbstractFacade<Estudiante> {
     
     public boolean buscarPorEmail(String usuemail) {
         Query query = getEntityManager().createNamedQuery("Estudiante.findByEstCorreo");
-        query.setParameter("est_correo", usuemail);
+        query.setParameter("estCorreo", usuemail);
         List<Usuario> resultList = query.getResultList();
         return !resultList.isEmpty();
 

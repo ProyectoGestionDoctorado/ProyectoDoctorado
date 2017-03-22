@@ -13,9 +13,6 @@
             <h:outputText value="#{bundle.CreateEstudianteTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -24,31 +21,51 @@
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <p:panelGrid columns="2">                    
+                        <p:panelGrid columns="3" styleClass="panelNoBorder" rendered="#{estudianteController.selected != null}" >                    
                             <p:outputLabel value="#{bundle.CreateEstudianteLabel_estCodigo}" for="estCodigo" />
-                            <p:inputText id="estCodigo" value="#{estudianteController.selected.estCodigo}" title="#{bundle.CreateEstudianteTitle_estCodigo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCodigo}"/>
+                            <p:inputText id="estCodigo" value="#{estudianteController.selected.estCodigo}" title="#{bundle.CreateEstudianteTitle_estCodigo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCodigo}">
+                                <f:validator validatorId="ValidarCampoCodigo"/>
+                            </p:inputText>
+                            <p:message for="estCodigo" class="message" />
                             <p:outputLabel value="#{bundle.CreateEstudianteLabel_estNombre}" for="estNombre" />
-                            <p:inputText id="estNombre" value="#{estudianteController.selected.estNombre}" title="#{bundle.CreateEstudianteTitle_estNombre}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estNombre}"/>
+                            <p:inputText id="estNombre" value="#{estudianteController.selected.estNombre}" title="#{bundle.CreateEstudianteTitle_estNombre}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estNombre}">
+                                <f:validator validatorId="ValidarCampoNombres"/>
+                            </p:inputText>
+                            <p:message for="estNombre" class="message" />
                             <p:outputLabel value="#{bundle.CreateEstudianteLabel_estApellidos}" for="estApellidos" />
-                            <p:inputText id="estApellidos" value="#{estudianteController.selected.estApellidos}" title="#{bundle.CreateEstudianteTitle_estApellidos}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estApellidos}"/>
+                            <p:inputText id="estApellidos" value="#{estudianteController.selected.estApellidos}" title="#{bundle.CreateEstudianteTitle_estApellidos}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estApellidos}">
+                                <f:validator validatorId="ValidarCampoApellidos"/>
+                            </p:inputText>
+                            <p:message for="estApellidos" class="message" />
                             <p:outputLabel value="#{bundle.CreateEstudianteLabel_estCorreo}" for="estCorreo" />
-                            <p:inputText id="estCorreo" value="#{estudianteController.selected.estCorreo}" title="#{bundle.CreateEstudianteTitle_estCorreo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCorreo}"/>
+                            <p:inputText id="estCorreo" value="#{estudianteController.selected.estCorreo}" title="#{bundle.CreateEstudianteTitle_estCorreo}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCorreo}">
+                                <f:validator validatorId="ValidarCampoCorreoEst"/>
+                            </p:inputText>
+                            <p:message for="estCorreo" class="message" />
                             <p:outputLabel value="#{bundle.CreateEstudianteLabel_estCohorte}" for="estCohorte" />
-                            <p:inputText id="estCohorte" value="#{estudianteController.selected.estCohorte}" title="#{bundle.CreateEstudianteTitle_estCohorte}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCohorte}"/>
+                            <p:inputText id="estCohorte" value="#{estudianteController.selected.estCohorte}" title="#{bundle.CreateEstudianteTitle_estCohorte}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estCohorte}">
+                                <f:validator validatorId="ValidarCampoCohorte"/>
+                            </p:inputText>
+                            <p:message for="estCohorte" class="message" />
                             <p:outputLabel value="#{bundle.CreateEstudianteLabel_estContrasena}" for="estContrasena" />
-                            <p:inputText id="estContrasena" value="#{estudianteController.selected.estContrasena}" title="#{bundle.CreateEstudianteTitle_estContrasena}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estContrasena}"/>
+                            <p:password id="estContrasena" value="#{estudianteController.selected.estContrasena}" title="#{bundle.CreateEstudianteTitle_estContrasena}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estContrasena}">
+                                <f:validator validatorId="ValidarCampoContrasena"/>
+                            </p:password>   
+                            <p:message for="estContrasena" class="message" />
                             <p:outputLabel value="#{bundle.CreateEstudianteLabel_estTutor}" for="estTutor" />
-                            <p:inputText id="estTutor" value="#{estudianteController.selected.estTutor}" title="#{bundle.CreateEstudianteTitle_estTutor}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estTutor}"/>
+                            <p:inputText id="estTutor" value="#{estudianteController.selected.estTutor}" title="#{bundle.CreateEstudianteTitle_estTutor}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_estTutor}">
+                                <f:validator validatorId="ValidarCampoTutor"/>
+                            </p:inputText>
+                            <p:message for="estTutor" class="message" />
                         </p:panelGrid>
                     </div>
                 </div>
                 
                 <br />
-                <p:commandLink action="#{estudianteController.create}" value="#{bundle.CreateEstudianteSaveLink}" class="btn btn-primary"/>
+                <p:commandButton ajax="false" actionListener="#{estudianteController.create}" value="#{bundle.CreateEstudianteSaveLink}" class="btn btn-primary"/>
                 &nbsp;&nbsp;
                 <p:commandLink action="#{estudianteController.prepareList}" value="#{bundle.CreateEstudianteShowAllLink}" immediate="true" class="btn btn-info"/>
                 &nbsp;&nbsp;
-                <p:link outcome="/index" value="#{bundle.CreateEstudianteIndexLink}" class="btn btn-warning"/>
             </h:form>
         </ui:define>
     </ui:composition>

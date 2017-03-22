@@ -67,12 +67,6 @@
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListEstudianteTitle_estContrasena}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.estContrasena}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
                                         <h:outputText value="#{bundle.ListEstudianteTitle_estTutor}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.estTutor}"/>
@@ -95,9 +89,8 @@
                     </div>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{estudianteController.prepareCreate}" value="#{bundle.ListEstudianteCreateLink}" class="btn btn-primary"/>
+                <p:commandLink action="#{estudianteController.prepareCreate}" value="#{bundle.ListEstudianteCreateLink}" class="btn btn-primary"/>
                 &nbsp;&nbsp;&nbsp;
-                <h:link outcome="/index" value="#{bundle.ListEstudianteIndexLink}" class="btn btn-warning colorLetraLinkBlanco"/>
             </h:form>
         </ui:define>
     </ui:composition>

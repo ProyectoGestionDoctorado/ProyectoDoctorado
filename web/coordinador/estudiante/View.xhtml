@@ -35,24 +35,20 @@
                             <p:outputLabel value="#{estudianteController.selected.estCorreo}" title="#{bundle.ViewEstudianteTitle_estCorreo}"/>
                             <p:outputLabel value="#{bundle.ViewEstudianteLabel_estCohorte}"/>
                             <p:outputLabel value="#{estudianteController.selected.estCohorte}" title="#{bundle.ViewEstudianteTitle_estCohorte}"/>
-                            <p:outputLabel value="#{bundle.ViewEstudianteLabel_estContrasena}"/>
-                            <p:outputLabel value="#{estudianteController.selected.estContrasena}" title="#{bundle.ViewEstudianteTitle_estContrasena}"/>
                             <p:outputLabel value="#{bundle.ViewEstudianteLabel_estTutor}"/>
                             <p:outputLabel value="#{estudianteController.selected.estTutor}" title="#{bundle.ViewEstudianteTitle_estTutor}"/>
                         </p:panelGrid>
                     </div>
                 </div>
                 <br />
-                <h:commandLink action="#{estudianteController.destroyAndView}" value="#{bundle.ViewEstudianteDestroyLink}" class="btn btn-danger"/>
+                <p:commandLink action="#{estudianteController.destroyAndView}" value="#{bundle.ViewEstudianteDestroyLink}" class="btn btn-danger"/>
                 &nbsp;&nbsp;
-                <h:link outcome="Edit" value="#{bundle.ViewEstudianteEditLink}" class="btn btn-warning"/>
+                <p:link outcome="Edit" value="#{bundle.ViewEstudianteEditLink}" class="btn btn-warning"/>
                 &nbsp;&nbsp;
-                <h:commandLink action="#{estudianteController.prepareCreate}" value="#{bundle.ViewEstudianteCreateLink}" class="btn btn-primary"/>
+                <p:commandLink action="#{estudianteController.prepareCreate}" value="#{bundle.ViewEstudianteCreateLink}" class="btn btn-primary"/>
                 &nbsp;&nbsp;
-                <h:commandLink action="#{estudianteController.prepareList}" value="#{bundle.ViewEstudianteShowAllLink}" class="btn btn-info"/>
+                <p:commandLink action="#{estudianteController.prepareList}" value="#{bundle.ViewEstudianteShowAllLink}" class="btn btn-info"/>
                 &nbsp;&nbsp;
-                <h:link outcome="/index" value="#{bundle.ViewEstudianteIndexLink}" class="btn btn-warning"/>
-
             </h:form>
         </ui:define>
     </ui:composition>
