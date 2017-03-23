@@ -24,7 +24,7 @@ public class ValidarCampoCohorte implements Validator {
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         String texto = String.valueOf(value);        
-        Pattern patron = Pattern.compile("([0-9]{4})$");
+        Pattern patron = Pattern.compile("^([0-9]{4})$");
         Matcher encaja = patron.matcher(texto);        
         if(!encaja.find())
         {
