@@ -1,24 +1,30 @@
-#centrado{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-top: 10%;
-}
 
-/*Imagen de las hojas de inicio*/
-#imagenInicio{
-    background-image: url("../img/hojas.png");
-    background-repeat: no-repeat;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+.contenedorExterior {
+    display: table;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
-
-/*tamano del formulario para la imagen de inicio*/
-#formularioInicio{
+.contenedorExterior .contenedorInterior {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.elemento {
+    background: url("../img/hojas.png") no-repeat;
     width: 370px;
-    height: 354px;    
-    margin-top: 50%;
+    height: 354px;
+    margin:0px auto;
+}
+
+.centrarElementosDiv{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    vertical-align: auto;
+    flex-direction: column;
 }
 
 /***** Generales *****/

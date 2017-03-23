@@ -11,25 +11,18 @@
     </h:head>
     
     <h:body>
-         
-        <div id ="centrado">
-            <div id="imagenInicio">
-                <h:form id="formularioInicio">               
-                    <h:panelGrid columns="2" cellpadding="5">
-
-                        <h:outputLabel for="username" value="Usuario:" />
-                        <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
-
-                        <h:outputLabel for="password" value="Contraseña:" />
-                        <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
-
-                        <f:facet name="footer">
-                            <p:commandButton value="Login" actionListener="#{userLoginView.login}"
-                                             oncomplete="handleLoginRequest(xhr, status, args)" />
-                        </f:facet>
-
-                    </h:panelGrid>           
-                </h:form>
+        
+        <div class="contenedorExterior">
+            <div class="contenedorInterior">
+                <div class="elemento">
+                    <h:form>
+                        <h:panelGrid columns="1" class="centrarElementosDiv">
+                            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username"/>
+                            <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
+                            <p:commandButton value="Ingresar" actionListener="#{userLoginView.login}" oncomplete="handleLoginRequest(xhr, status, args)" />
+                        </h:panelGrid>
+                    </h:form>
+                </div>
             </div>
         </div>
         
