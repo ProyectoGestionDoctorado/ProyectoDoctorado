@@ -16,8 +16,9 @@
                 <div class="elemento">
                     <h:form>
                         <h:panelGrid columns="1" class="centrarElementosPanel">
-                            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" class="userNameClass"/>
-                            <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
+                            <p:outputLabel value="Iniciar Sesión"/>
+                            <h:inputText id="username" value="#{userLoginView.username}" required="true" label="username" class="userNameClass"/>
+                            <h:inputSecret id="password" value="#{userLoginView.password}" required="true" label="password" class="userNameClass"/>
                             <p:commandButton value="Ingresar" actionListener="#{userLoginView.login}" oncomplete="handleLoginRequest(xhr, status, args)" />
                         </h:panelGrid>
                     </h:form>

@@ -14,7 +14,7 @@
 }
 .elemento {
     background: url("../img/hojas.png") no-repeat;
-    width: 370px;
+    width: 370px;  /*tamanho de la imagen de las hojas*/
     height: 354px;
     margin:0px auto;
 }
@@ -26,11 +26,17 @@
     vertical-align: auto;
     flex-direction: column;
     margin-top: 40%; /*modificar cuando se agregue un encabezado a la pagina*/
-    height: 354px;
+    height: 354px; /*tamanhio de la altura de la imagen de las hojas*/
 }
 
 .userNameClass{
-    background: url(../img/ico-usuario.png) no-repeat !important;
+    background: url(../img/ico-usuario.png) no-repeat !important; 
+    padding-left: 40px; /*donde quiero que comience el texto*/
+    height: 28px; /*la altura del icono para que concuerde con la caja de texto*/
+    border-radius: 5px; /*el radio del input para que no se vea tan feo*/
+    border: 2px solid #E5E5E8; /*color del borde del input*/
+    color: #AEAEB7; /*color del texto del input*/
+    font-size: medium; /*tamanio de letra del input*/
 }
 
 /***** Generales *****/
