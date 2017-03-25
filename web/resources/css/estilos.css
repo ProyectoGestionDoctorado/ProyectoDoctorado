@@ -25,7 +25,7 @@
     display: flex;
     vertical-align: auto;
     flex-direction: column;
-    margin-top: 40%; /*modificar cuando se agregue un encabezado a la pagina*/
+    margin-top: 10%; /*modificar cuando se agregue un encabezado a la pagina*/
     height: 354px; /*tamanhio de la altura de la imagen de las hojas*/
 }
 
@@ -34,9 +34,40 @@
     padding-left: 40px; /*donde quiero que comience el texto*/
     height: 28px; /*la altura del icono para que concuerde con la caja de texto*/
     border-radius: 5px; /*el radio del input para que no se vea tan feo*/
-    border: 2px solid #E5E5E8; /*color del borde del input*/
+    border: 2px solid #DBDBDB; /*color del borde del input*/
     color: #AEAEB7; /*color del texto del input*/
     font-size: medium; /*tamanio de letra del input*/
+}
+
+.userPasswordClass{
+    background: url(../img/ico-contrasena.png) no-repeat !important;
+    padding-left: 40px; /*donde quiero que comience el texto*/
+    height: 28px; /*la altura del icono para que concuerde con la caja de texto*/
+    border-radius: 5px; /*el radio del input para que no se vea tan feo*/
+    border: 2px solid #DBDBDB; /*color del borde del input*/
+    color: #AEAEB7; /*color del texto del input*/
+    font-size: medium; /*tamanio de letra del input*/
+}
+
+.textLogin{
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 200px;
+    padding-top: 6%;
+}
+
+.encabezado{
+    width: 376px;  /*tamanho de la imagen de las hojas*/
+    height: 92px;
+    margin: 0px auto;
+}
+.imagenLogoUnicauca{
+    background: url("../img/logo.png") no-repeat;  
+    width: 450px;  /*tamanho de la imagen de las hojas*/
+    height: 92px;
+    margin:0px auto;
+    vertical-align: middle;
 }
 
 /***** Generales *****/

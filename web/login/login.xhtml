@@ -13,12 +13,22 @@
         
         <div class="contenedorExterior">
             <div class="contenedorInterior">
+                <div class="imagenLogoUnicauca">
+                    <p class="textLogin">Sistema de Control Documental de Posgrados Unicauca</p>
+                </div>                
+            </div>                
+        </div>
+            
+        
+        
+        <div class="contenedorExterior">
+            <div class="contenedorInterior">
                 <div class="elemento">
                     <h:form>
                         <h:panelGrid columns="1" class="centrarElementosPanel">
-                            <p:outputLabel value="Iniciar Sesión"/>
+                            <p:outputLabel value="Iniciar Sesión" class="textLogin"/>
                             <h:inputText id="username" value="#{userLoginView.username}" required="true" label="username" class="userNameClass"/>
-                            <h:inputSecret id="password" value="#{userLoginView.password}" required="true" label="password" class="userNameClass"/>
+                            <h:inputSecret id="password" value="#{userLoginView.password}" required="true" label="password" class="userPasswordClass"/>
                             <p:commandButton value="Ingresar" actionListener="#{userLoginView.login}" oncomplete="handleLoginRequest(xhr, status, args)" />
                         </h:panelGrid>
                     </h:form>
